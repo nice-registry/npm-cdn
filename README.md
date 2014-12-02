@@ -2,6 +2,10 @@
 
 A webservice that dishes out files from npm packages.
 
+npm-cdn downloads tarballs from the npm registry and stores them on disk. First-time requests for a package are slow because the entire package tarball has to be fetched, but subsequent requests for files in the same package should be pretty fast.
+
+**Caveat npmtor**: This is a proof of concept app. It works, but it's experimental. It's running on a single Heroku dyno so it won't scale. To become a real thing it will need to sit behind a CDN.
+
 ## Usage
 
 To access a file inside a published npm package, use the following pattern:
