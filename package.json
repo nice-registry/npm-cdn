@@ -1,0 +1,36 @@
+{
+  "name": "npm-cdn",
+  "version": "1.0.0",
+  "description": "A service that dishes out the contents of npm packages over http",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeke/npm-cdn"
+  },
+  "keywords": [
+    "npm",
+    "cdn",
+    "static",
+    "files"
+  ],
+  "author": "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeke/npm-cdn/issues"
+  },
+  "homepage": "https://github.com/zeke/npm-cdn",
+  "dependencies": {
+    "request": "^2.49.0",
+    "restify": "^2.8.3",
+    "tar-fs": "^1.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "nixt": "^0.4.1",
+    "nodemon": "^1.2.1",
+    "rimraf": "^2.2.8"
+  }
+}
