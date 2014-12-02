@@ -1,6 +1,20 @@
-# npm-cdn 
+# npm-cdn
 
-A service that dishes out the contents of npm packages over http
+A webservice that dishes out files from npm packages.
+
+## Usage
+
+To access a file inside a published npm package, use the following pattern:
+
+```
+https://npm-cdn.herokuapp.com/{packageName}@{packageVersion}/{filePath}
+```
+
+Examples:
+
+- [/dat@6.8.6/img/dat-website.png](https://npm-cdn.herokuapp.com/dat@6.8.6/img/dat-website.png)
+- [/express@4.10.4/package.json](https://npm-cdn.herokuapp.com/express@4.10.4/package.json)
+- [/zeke.sikelianos.com@1.0.0/assets/images/hands.png](https://npm-cdn.herokuapp.com/zeke.sikelianos.com@1.0.0/assets/images/hands.png)
 
 ## Installation
 
@@ -9,7 +23,6 @@ Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't 
 ```sh
 npm install npm-cdn --save
 ```
-
 
 ## Tests
 

@@ -1,7 +1,7 @@
 {
   "name": "npm-cdn",
   "version": "1.0.0",
-  "description": "A service that dishes out the contents of npm packages over http",
+  "description": "A webservice that dishes out files from npm packages",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
