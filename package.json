@@ -1,6 +1,6 @@
 {
   "name": "npm-cdn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A webservice that dishes out files from npm packages",
   "main": "index.js",
   "scripts": {
