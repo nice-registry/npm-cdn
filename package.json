@@ -4,7 +4,8 @@
   "description": "A service that dishes out the contents of npm packages over http",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
