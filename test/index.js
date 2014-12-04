@@ -2,7 +2,9 @@ var assert = require("assert")
 var fs = require("fs")
 var path = require("path")
 var rimraf = require("rimraf")
+var supertest = require("supertest")
 var Package = require("../lib/package")
+var app = require("../server")
 
 describe("Package", function() {
   var pkg
@@ -47,6 +49,30 @@ describe("Package", function() {
       stream.on("data", function(data) {/* noop */})
       stream.on("end", done)
     })
+  })
+
+  it("handles missing files", function(done) {
+    pkg.streamFile("nope.json", function(err, stream) {
+      assert(err)
+      assert(!stream)
+      done()
+    })
+  })
+
+})
+
+describe("server", function() {
+
+  it("returns 200 for files that exist", function(done) {
+    supertest(app)
+      .get("/schemeless@1.1.0/package.json")
+      .expect(200, done)
+  })
+
+  it("returns 404 for files that don't", function(done) {
+    supertest(app)
+    .get("/schemeless@1.1.0/nope.json")
+    .expect(404, done)
   })
 
 })

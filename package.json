@@ -26,12 +26,14 @@
   "dependencies": {
     "request": "^2.49.0",
     "restify": "^2.8.3",
+    "supertest": "^0.15.0",
     "tar-fs": "^1.4.0"
   },
   "devDependencies": {
     "mocha": "^2.0.1",
     "nixt": "^0.4.1",
     "nodemon": "^1.2.1",
-    "rimraf": "^2.2.8"
+    "rimraf": "^2.2.8",
+    "supertest": "^0.15.0"
   }
 }
