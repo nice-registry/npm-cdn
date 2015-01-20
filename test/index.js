@@ -59,6 +59,14 @@ describe("Package", function() {
     })
   })
 
+  it("returns directory tree if file is blank", function(done) {
+    pkg.streamFile("", function(err, stream) {
+      assert(stream)
+      assert(JSON.parse(stream).length)
+      done()
+    })
+  })
+
 })
 
 describe("server", function() {

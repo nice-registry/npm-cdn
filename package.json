@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/zeke/npm-cdn",
   "dependencies": {
+    "findit": "^2.0.0",
     "request": "^2.49.0",
     "restify": "^2.8.3",
     "supertest": "^0.15.0",
