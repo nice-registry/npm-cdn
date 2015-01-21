@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>{{name}}@{{version}}</title>
+  </head>
+  <body>
+    <h1>{{name}}@{{version}}</h1>
+    <ul>
+      {{#each files}}
+        <li><a href="/{{../name}}@{{../version}}/{{this}}">{{this}}</a></li>
+      {{/each}}
+    </ul>
+  </body>
+</html>

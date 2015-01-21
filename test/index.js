@@ -69,7 +69,7 @@ describe("server", function() {
       .expect(200, done)
   })
 
-  it("returns 404 for files that don't", function(done) {
+  it("returns 404 for files that don't exist", function(done) {
     supertest(app)
     .get("/schemeless@1.1.0/nope.json")
     .expect(404, done)
@@ -97,13 +97,15 @@ describe("logos only (temporary)", function() {
     })
   })
 
-  it("returns error if file is NOT `icon` in package.json", function(done) {
-    pkg.streamFile("README.md", function(err, stream) {
-      assert(err)
-      assert(String(err).match(/I only serve/i))
-      assert(!stream)
-      done()
-    })
-  })
+  // it("returns error if file is NOT `icon` in package.json and process.env.ACCESS_RESTRICTED", function(done) {
+  //   process.env.ACCESS_RESTRICTED = "yep"
+  //   pkg.streamFile("README.md", function(err, stream) {
+  //     assert(err)
+  //     assert(String(err).match(/I only serve/i))
+  //     assert(!stream)
+  //     process.env.ACCESS_RESTRICTED = null
+  //     done()
+  //   })
+  // })
 
 })
