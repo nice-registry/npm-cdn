@@ -52,7 +52,7 @@ describe("Package", function() {
   })
 
   it("handles missing files", function(done) {
-    pkg.streamFile("nope.json", function(err, stream) {
+    pkg.streamFile("package.svg", function(err, stream) {
       assert(err)
       assert(!stream)
       done()
@@ -69,10 +69,43 @@ describe("server", function() {
       .expect(200, done)
   })
 
-  it("returns 404 for files that don't", function(done) {
+  it("returns 404 for files that don't exist", function(done) {
     supertest(app)
     .get("/schemeless@1.1.0/nope.json")
     .expect(404, done)
   })
+
+})
+
+describe("logos only (temporary)", function() {
+  var pkg
+
+  beforeEach(function() {
+    pkg = new Package("schemeless", "1.1.0")
+  })
+
+  afterEach(function(done) {
+    rimraf(pkg.directory, done)
+  })
+
+  it("returns stream if file is `icon` in package.json", function(done) {
+    pkg.streamFile("icon.svg", function(err, stream) {
+      assert(!err)
+      assert(stream)
+      stream.on("data", function(data) {/* noop */})
+      stream.on("end", done)
+    })
+  })
+
+  // it("returns error if file is NOT `icon` in package.json and process.env.ACCESS_RESTRICTED", function(done) {
+  //   process.env.ACCESS_RESTRICTED = "yep"
+  //   pkg.streamFile("README.md", function(err, stream) {
+  //     assert(err)
+  //     assert(String(err).match(/I only serve/i))
+  //     assert(!stream)
+  //     process.env.ACCESS_RESTRICTED = null
+  //     done()
+  //   })
+  // })
 
 })
