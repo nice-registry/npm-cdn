@@ -2,7 +2,9 @@ var fs = require("fs")
 var restify = require("restify")
 var Package = require("./lib/package")
 var port = Number(process.env.PORT || 8080)
-var urlPattern = /\/(.*)@(\d+\.\d+\.\d+)[\/]?(.*)/ // {name}@{version}/{filepath}
+
+var packageWithoutVersionPattern = /^\/([^@]+)[\/]?$/ // {name}
+var packageFilePattern = /^\/(.*)@(\d+\.\d+\.\d+)[\/]?(.*)$/ // {name}@{version}/{filepath}
 
 function serveFile(req, res, next) {
   req.log.info("server", req.url)
@@ -30,10 +32,24 @@ function serveFile(req, res, next) {
   })
 }
 
+function redirectToVersionedPackage(req, res, next) {
+  console.log("redirectToVersionedPackage", req.params[0])
+  require("superagent").get("http://registry.npmjs.org/" + req.params[0], function(rez){
+    if (!rez.ok) {
+      return res.send(404, {error: "package not found: " + req.params[0]})
+    }
+
+    var pkg = rez.body
+    res.header("Location", "/" + pkg.name + "@" + pkg["dist-tags"].latest)
+    return res.send(302)
+  })
+}
+
 var server = module.exports = restify.createServer()
 server.use(restify.queryParser())
-server.get(urlPattern, serveFile)
-server.head(urlPattern, serveFile)
+server.get(packageWithoutVersionPattern, redirectToVersionedPackage)
+server.get(packageFilePattern, serveFile)
+server.head(packageFilePattern, serveFile)
 server.listen(port, function() {
   console.log("%s listening at %s", server.name, server.url);
 });
