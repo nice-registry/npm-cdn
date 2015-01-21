@@ -20,13 +20,23 @@ Examples:
 - [/express@4.10.4/package.json](https://npm-cdn.herokuapp.com/express@4.10.4/package.json)
 - [/zeke.sikelianos.com@1.0.0/assets/images/hands.png](https://npm-cdn.herokuapp.com/zeke.sikelianos.com@1.0.0/assets/images/hands.png)
 
-## Installation
+## Indexes
 
-Download node at [nodejs.org](http://nodejs.org) and install it, if you haven't already.
+When a package is downloaded, index files are generated in HTML and JSON format.
 
-```sh
-npm install npm-cdn --save
-```
+- [/browserify@8.1.1](https://npm-cdn.herokuapp.com/browserify@8.1.1) renders an HTML
+page with links to all the files in the package.
+- [/browserify@8.1.1/?json](https://npm-cdn.herokuapp.com/browserify@8.1.1/?json) returns
+a JSON array of all the files in the package. You can also set an `application/json`
+Accept header in the request instead of using the `json` query param.
+
+## Redirects
+
+If you request a package without specifying a version, you'll be redirected to the
+index for the latest version of the package:
+
+- [/lodash](https://npm-cdn.herokuapp.com/lodash) redirects to [/lodash@2.4.1](https://npm-cdn.herokuapp.com/lodash@2.4.1)
+
 
 ## Tests
 
