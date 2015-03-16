@@ -1,7 +1,7 @@
 var fs = require("fs")
 var restify = require("restify")
 var Package = require("./lib/package")
-var port = Number(process.env.PORT || 8080)
+var port = Number(process.env.PORT || process.argv[2] || 8080)
 
 var packageWithoutVersionPattern = /^\/([^@]+)[\/]?$/ // {name}
 var packageFilePattern = /^\/(.*)@(\d+\.\d+\.\d+)[\/]?(.*)$/ // {name}@{version}/{filepath}
