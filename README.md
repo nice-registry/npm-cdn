@@ -49,9 +49,12 @@ npm test
 
 ## Dependencies
 
+- [findit](https://github.com/substack/node-findit): walk a directory tree recursively with events
+- [handlebars](https://github.com/wycats/handlebars.js): Handlebars provides the power necessary to let you build semantic templates effectively with no frustration
 - [request](https://github.com/request/request): Simplified HTTP request client.
 - [restify](https://github.com/mcavage/node-restify): REST framework
-- [tar-fs](https://github.com/mafintosh/tar-fs): filesystem bindings for tar-stream
+- [superagent](https://github.com/visionmedia/superagent): elegant &amp; feature rich browser / node HTTP with a fluent API
+- [tar-fs](git://github.com:mafintosh/tar-fs.git): filesystem bindings for tar-stream
 
 ## Dev Dependencies
 
@@ -59,6 +62,7 @@ npm test
 - [nixt](https://github.com/vesln/nixt): Simple and powerful testing for command-line apps
 - [nodemon](https://github.com/remy/nodemon): Simple monitor script for use during development of a node.js app.
 - [rimraf](https://github.com/isaacs/rimraf): A deep deletion module for node (like `rm -rf`)
+- [supertest](https://github.com/visionmedia/supertest): Super-agent driven library for testing HTTP servers
 
 
 ## License
