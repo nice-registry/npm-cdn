@@ -6,7 +6,7 @@ npm-cdn downloads tarballs from the npm registry and stores them on disk. First-
 
 **Caveat npmtor**: This is a proof of concept app. It works, but it's experimental. It's running on a single Heroku dyno so it won't scale. To become a real thing it will need to sit behind a CDN.
 
-See also [npmcdn.com](https://npmcdn.com/), a very similar project.
+See also [unpkg.com](https://unpkg.com/), a very similar project.
 
 ## Usage
 
